@@ -3,21 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eric Dyck - Software Developer</title>
+    <title>Eric Dyck - Computer Programmer</title>
     <link rel="stylesheet" href="Stylesheet.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
 <!-- Navigation -->
 <nav class="nav">
     <div class="nav-content">
         <div class="logo">ED</div>
+
+        <button class="mobile-menu-btn">
+            ☰
+        </button>
+
         <div class="nav-right">
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#contact">Social</a></li>
             </ul>
             <button class="theme-toggle" onclick="toggleTheme()">
                 <span id="theme-icon">🌙</span>
@@ -31,7 +37,7 @@
     <div class="particles"></div>
     <div class="hero-content">
         <h1>Eric Dyck</h1>
-        <p>Full-Stack Software Developer</p>
+        <p>Computer Programmer</p>
         <a href="#projects" class="cta-button">View My Work</a>
     </div>
 </section>
@@ -62,7 +68,7 @@
             </div>
             <div class="about-text">
                 <p>
-                    Hi, I’m Eric Dyck, a curious and detail-oriented Junior Full-Stack Developer from Kingsville, ON. I love turning ideas into functional, user-friendly web applications and learning everything I can about the tools and systems I work with from software frameworks to mechanical equipment and even board games!
+                    Hi, I’m Eric Dyck, a curious and detail-oriented Computer Programmer from Kingsville, ON. I love turning ideas into functional, user-friendly web applications and learning everything I can about the tools and systems I work with from software frameworks to mechanical equipment and even board games!
                 <p>
                     I specialize in Java, PHP, MySQL, JavaScript, HTML, CSS, and full-stack development, and I’m always diving into manuals, tutorials, and documentation to master new skills and solve problems efficiently. My background in project management and hands-on work has taught me how to tackle challenges creatively and deliver high-quality results.
                 </p>
@@ -159,21 +165,16 @@
 <section id="contact" class="section">
     <div class="container">
         <h2 class="section-title">Get In Touch</h2>
-        <form class="contact-form">
-            <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="message">Message</label>
-                <textarea id="message" name="message" rows="5" required></textarea>
-            </div>
-            <button type="submit" class="submit-btn">Send Message</button>
-        </form>
+
+        <div class="contact-icons">
+            <a href="https://github.com/eDyck77" target="_blank" class="icon github">
+                <i class="fab fa-github"></i>
+            </a>
+
+            <a href="https://linkedin.com/in/edyck" target="_blank" class="icon linkedin">
+                <i class="fab fa-linkedin"></i>
+            </a>
+        </div>
     </div>
 </section>
 
@@ -264,40 +265,6 @@
         }
     }
 
-    // Form submission
-    document.querySelector('.contact-form').addEventListener('submit', function(e) {
-        e.preventDefault();
-
-        // Get form data
-        const formData = new FormData(this);
-        const name = formData.get('name');
-        const email = formData.get('email');
-        const message = formData.get('message');
-
-        // Simulate form submission
-        const submitBtn = this.querySelector('.submit-btn');
-        const originalText = submitBtn.textContent;
-
-        submitBtn.textContent = 'Sending...';
-        submitBtn.disabled = true;
-
-        setTimeout(() => {
-            submitBtn.textContent = 'Message Sent!';
-            submitBtn.style.background = 'linear-gradient(45deg, #00ff00, #00ffff)';
-
-            setTimeout(() => {
-                submitBtn.textContent = originalText;
-                if (document.body.classList.contains('light-mode')) {
-                    submitBtn.style.background = 'linear-gradient(45deg, #6366f1, #8b5cf6)';
-                } else {
-                    submitBtn.style.background = 'linear-gradient(45deg, #00ffff, #ff00ff)';
-                }
-                submitBtn.disabled = false;
-                this.reset();
-            }, 2000);
-        }, 1500);
-    });
-
     // Initialize
     loadTheme();
     createParticles();
@@ -348,6 +315,12 @@
                 });
             }
         });
+    });
+    const menuBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+
+    menuBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('show');
     });
 </script>
 <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98ade81430f3aae8',t:'MTc1OTg0NTQzNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
