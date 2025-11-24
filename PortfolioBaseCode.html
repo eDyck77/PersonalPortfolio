@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eric Dyck - Software Developer</title>
+    <link rel="stylesheet" href="Stylesheet.css">
+</head>
+<body>
+<!-- Navigation -->
+<nav class="nav">
+    <div class="nav-content">
+        <div class="logo">ED</div>
+        <div class="nav-right">
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="theme-toggle" onclick="toggleTheme()">
+                <span id="theme-icon">🌙</span>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section id="home" class="hero">
+    <div class="particles"></div>
+    <div class="hero-content">
+        <h1>Eric Dyck</h1>
+        <p>Full-Stack Software Developer</p>
+        <a href="#projects" class="cta-button">View My Work</a>
+    </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="section">
+    <div class="container">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+            <div class="about-image">
+                <div class="profile-card">
+                    <div class="profile-avatar"><img src="Images/Eric%20Emoji.png" alt="Eric Emoji"></div>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <span class="stat-number">5+</span>
+                            <span class="stat-label">Years Experience</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">50+</span>
+                            <span class="stat-label">Projects Completed</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">15+</span>
+                            <span class="stat-label">Technologies</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="about-text">
+                <p>
+                    I'm a passionate full-stack software developer with over 5 years of experience creating innovative digital solutions. My journey began with a Computer Science degree, but my real education came from building real-world applications that solve meaningful problems.
+                </p>
+                <p>
+                    I specialize in modern web technologies and have a deep love for clean, efficient code. Whether it's architecting scalable backend systems, crafting intuitive user interfaces, or optimizing performance, I approach every project with curiosity and attention to detail.
+                </p>
+                <p>
+                    When I'm not coding, you'll find me exploring the latest tech trends, contributing to open-source projects, or mentoring aspiring developers. I believe in the power of technology to transform ideas into reality and create positive impact in the world.
+                </p>
+                <p>
+                    I'm always excited to take on new challenges and collaborate with teams that share my passion for innovation and excellence.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Skills Section -->
+<section id="skills" class="section">
+    <div class="container">
+        <h2 class="section-title">Skills & Expertise</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <span class="skill-icon">⚛️</span>
+                <h3>Frontend Development</h3>
+                <p>React, Vue.js, TypeScript, Next.js, and modern CSS frameworks for creating responsive and interactive user interfaces.</p>
+            </div>
+            <div class="skill-card">
+                <span class="skill-icon">🚀</span>
+                <h3>Backend Development</h3>
+                <p>Node.js, Python, PostgreSQL, MongoDB, and RESTful API design for scalable server-side applications.</p>
+            </div>
+            <div class="skill-card">
+                <span class="skill-icon">☁️</span>
+                <h3>Cloud & DevOps</h3>
+                <p>AWS, Docker, Kubernetes, CI/CD pipelines, and infrastructure as code for reliable deployments.</p>
+            </div>
+            <div class="skill-card">
+                <span class="skill-icon">📱</span>
+                <h3>Mobile Development</h3>
+                <p>React Native and Flutter for cross-platform mobile applications with native performance.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Projects Section -->
+<section id="projects" class="section">
+    <div class="container">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-image">🌐</div>
+                <div class="project-content">
+                    <h3>E-Commerce Platform</h3>
+                    <p>A full-stack e-commerce solution with real-time inventory management, payment processing, and analytics dashboard.</p>
+                    <div class="project-tags">
+                        <span class="tag">React</span>
+                        <span class="tag">Node.js</span>
+                        <span class="tag">PostgreSQL</span>
+                        <span class="tag">Stripe</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image">🤖</div>
+                <div class="project-content">
+                    <h3>AI Chat Assistant</h3>
+                    <p>An intelligent chatbot with natural language processing capabilities and integration with multiple APIs.</p>
+                    <div class="project-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">TensorFlow</span>
+                        <span class="tag">FastAPI</span>
+                        <span class="tag">WebSocket</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image">📊</div>
+                <div class="project-content">
+                    <h3>Data Visualization Tool</h3>
+                    <p>Interactive dashboard for complex data analysis with real-time updates and customizable charts.</p>
+                    <div class="project-tags">
+                        <span class="tag">Vue.js</span>
+                        <span class="tag">D3.js</span>
+                        <span class="tag">Express</span>
+                        <span class="tag">MongoDB</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="section">
+    <div class="container">
+        <h2 class="section-title">Get In Touch</h2>
+        <form class="contact-form">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+    </div>
+</section>
+
+<script>
+    // Theme toggle functionality
+    function toggleTheme() {
+        const body = document.body;
+        const themeIcon = document.getElementById('theme-icon');
+        const themeText = document.getElementById('theme-text');
+
+        body.classList.toggle('light-mode');
+
+        if (body.classList.contains('light-mode')) {
+            themeIcon.textContent = '☀️';
+            themeText.textContent = 'Dark';
+            localStorage.setItem('theme', 'light');
+        } else {
+            themeIcon.textContent = '🌙';
+            themeText.textContent = 'Light';
+            localStorage.setItem('theme', 'dark');
+        }
+    }
+
+    // Load saved theme
+    function loadTheme() {
+        const savedTheme = localStorage.getItem('theme');
+        const body = document.body;
+        const themeIcon = document.getElementById('theme-icon');
+        const themeText = document.getElementById('theme-text');
+
+        if (savedTheme === 'light') {
+            body.classList.add('light-mode');
+            themeIcon.textContent = '☀️';
+            themeText.textContent = 'Dark';
+        }
+    }
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    // Intersection Observer for section animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.section').forEach(section => {
+        observer.observe(section);
+    });
+
+    // Create floating particles
+    function createParticles() {
+        const particlesContainer = document.querySelector('.particles');
+        const particleCount = 50;
+
+        for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.top = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 6 + 's';
+            particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
+
+            // Random colors
+            const colors = ['#00ffff', '#ff00ff', '#ffff00'];
+            particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+
+            particlesContainer.appendChild(particle);
+        }
+    }
+
+    // Form submission
+    document.querySelector('.contact-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        // Get form data
+        const formData = new FormData(this);
+        const name = formData.get('name');
+        const email = formData.get('email');
+        const message = formData.get('message');
+
+        // Simulate form submission
+        const submitBtn = this.querySelector('.submit-btn');
+        const originalText = submitBtn.textContent;
+
+        submitBtn.textContent = 'Sending...';
+        submitBtn.disabled = true;
+
+        setTimeout(() => {
+            submitBtn.textContent = 'Message Sent!';
+            submitBtn.style.background = 'linear-gradient(45deg, #00ff00, #00ffff)';
+
+            setTimeout(() => {
+                submitBtn.textContent = originalText;
+                if (document.body.classList.contains('light-mode')) {
+                    submitBtn.style.background = 'linear-gradient(45deg, #6366f1, #8b5cf6)';
+                } else {
+                    submitBtn.style.background = 'linear-gradient(45deg, #00ffff, #ff00ff)';
+                }
+                submitBtn.disabled = false;
+                this.reset();
+            }, 2000);
+        }, 1500);
+    });
+
+    // Initialize
+    loadTheme();
+    createParticles();
+
+    // Navbar background on scroll
+    window.addEventListener('scroll', () => {
+        const nav = document.querySelector('.nav');
+        const isLightMode = document.body.classList.contains('light-mode');
+
+        if (window.scrollY > 100) {
+            nav.style.background = isLightMode ? 'rgba(248, 250, 252, 0.95)' : 'rgba(10, 10, 10, 0.95)';
+        } else {
+            nav.style.background = isLightMode ? 'rgba(248, 250, 252, 0.9)' : 'rgba(10, 10, 10, 0.9)';
+        }
+    });
+</script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98ade81430f3aae8',t:'MTc1OTg0NTQzNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
