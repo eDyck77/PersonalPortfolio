@@ -36,7 +36,12 @@ const allProjects = [
         `,
         image: "Images/Inkling Nook/inklingNookLogo.png",
         images: [
-            "Images/Inkling Nook/Login.gif", "Images/Inkling Nook/Inventory.gif", "Images/Inkling Nook/CustomerEdit.gif", "Images/Inkling Nook/reminderEmail.gif", "Images/Inkling Nook/Goodstanding.gif", "Images/Inkling Nook/statistics.png"
+            "Images/Inkling Nook/Login.gif",
+            "Images/Inkling Nook/Inventory.gif",
+            "Images/Inkling Nook/CustomerEdit.gif",
+            "Images/Inkling Nook/reminderEmail.gif",
+            "Images/Inkling Nook/Goodstanding.gif",
+            "Images/Inkling Nook/statistics.png"
 
         ],
         github: "https://github.com/eDyck77/FinalProject",
@@ -95,5 +100,54 @@ const allProjects = [
         github: "", // Update with your actual repo link
         featured: true,
         tags: ["JavaFX", "File-IO", "CSS", "Git"]
+    },
+    {
+        id: "personal-biography-v1",
+        title: "Legacy Portfolio & Biography",
+        shortDesc: "Multi-page semantic HTML5/CSS3 biographical website.",
+        fullDesc: `
+        <div class="detail-info">
+            <h3>Project Overview</h3>
+            <p>
+                This project served as a foundational exploration of web development, focusing on semantic HTML5 structure and advanced CSS3 layout techniques. 
+                It functions as a multi-page biographical site that showcases personal history, employee records, and early academic projects through a custom-coded interface.
+            </p>
+
+            <h3>Core Functionalities</h3>
+            <ul>
+                <li><strong>Hierarchical Navigation:</strong> Implemented a complex CSS-driven dropdown menu system that utilizes <code>hover</code> states and absolute positioning to manage project and about-me subcategories.</li>
+                <li><strong>Responsive Grid Layouts:</strong> Developed a custom responsive framework using <code>flex-wrap</code> and media queries to ensure the biographical content and media galleries adapt seamlessly to mobile viewports (max-width: 600px).</li>
+                <li><strong>Interactive Contact Engine:</strong> Built a styled contact form featuring custom <code>fieldset</code> layouts and transparent input fields that maintain the site's aesthetic across desktop and mobile versions.</li>
+                <li><strong>Project Gallery:</strong> Created dedicated case study pages for early works, including a Gretzky interactive presentation and an RGC Group informational site.</li>
+            </ul>
+
+            <h3>Technical Implementation</h3>
+            <ul>
+                <li><strong>Style Architecture:</strong> Utilized a "Myers Reset" to ensure cross-browser consistency and a categorized <code>final.css</code> architecture to manage specific page logic from a single source.</li>
+                <li><strong>Visual Theming:</strong> Applied a custom color palette (RGB-based) and professional typography using the Raleway font family to create a cohesive brand identity.</li>
+                <li><strong>Asset Management:</strong> Integrated semantic <code>&lt;aside&gt;</code> and <code>&lt;article&gt;</code> tags to separate primary narrative text from supporting visual media like family and travel portraits.</li>
+            </ul>
+
+            <h3>Development Challenges & Research</h3>
+            <p>
+                A key challenge was managing the <code>z-index</code> and <code>positioning</code> of nested dropdown menus within the navigation bar to prevent content overlap. 
+                Additionally, I refined the mobile user experience by creating a unique <code>mobileContact.png</code> background and adjusting fieldset padding to ensure touch-friendly input areas.
+            </p>
+        </div>
+    `,
+        image: "Images/Eric Emoji.png",
+        images: [
+            "Images/BioWebsite/Main.png",
+            "Images/BioWebsite/Bio.png",
+            "Images/BioWebsite/Dropdown.png",
+            "Images/BioWebsite/Skills.png",
+            "Images/BioWebsite/TriviaChase.png",
+            "Images/BioWebsite/Wayne.png",
+            "Images/BioWebsite/BioMini.png",
+            "Images/BioWebsite/ContactForm.png"
+        ],
+        github: "https://github.com/eDyck77/BiographyWebsite",
+        featured: false,
+        tags: ["Html", "CSS"]
     }
 ];

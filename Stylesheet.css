@@ -1008,7 +1008,7 @@ body.light-mode .icon:hover {
 
 .detail-img {
     /* These three lines force the image to stay inside the wrapper */
-    max-width: 100%;
+    max-width: 1000px;
     max-height: 100%;
     object-fit: contain;
 
