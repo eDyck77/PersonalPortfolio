@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eric Dyck - Computer Programmer</title>
+    <link rel="icon" type="image/png" href="Images/Eric Emoji.png">
     <link rel="stylesheet" href="Stylesheet.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
@@ -43,10 +44,12 @@
 
 <!-- Hero Section -->
 <section id="home" class="hero">
+    <canvas id="hero-canvas"></canvas>
+
     <div class="hero-content">
         <h1>Eric Dyck</h1>
-        <p>Computer Programmer | Web Developer</p>
-        <a href="projects.html" class="cta-button">View Past Projects</a>
+        <p>Full-Stack Developer Specializing in Java Systems & Modern Web UI</p>
+        <a href="projects.html" class="cta-button">Explore My Work</a>
     </div>
 </section>
 
@@ -60,15 +63,15 @@
                     <div class="profile-avatar"><img src="Images/Eric%20Emoji.png" alt="Eric Emoji"></div>
                     <div class="stats-grid">
                         <div class="stat-item">
-                            <span class="stat-number">2+</span>
+                            <span class="stat-number">3+</span>
                             <span class="stat-label">Years Experience</span>
                         </div>
                         <div class="stat-item">
-                            <span class="stat-number">10+</span>
+                            <span class="stat-number">30+</span>
                             <span class="stat-label">Projects Completed</span>
                         </div>
                         <div class="stat-item">
-                            <span class="stat-number">15+</span>
+                            <span class="stat-number">20+</span>
                             <span class="stat-label">Technologies</span>
                         </div>
                     </div>
@@ -197,6 +200,9 @@
     window.onload = () => {
         initTheme();
         renderHomeProjects();
+        initCanvas();
+        createParticles();
+        animate();
 
         // Section Visibility Observer
         const observer = new IntersectionObserver((entries) => {
@@ -252,6 +258,53 @@
     menuBtn.addEventListener('click', () => {
         navLinks.classList.toggle('show');
     });
+    (function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98ade81430f3aae8',t:'MTc1OTg0NTQzNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();
+    const canvas = document.getElementById('hero-canvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+
+    function initCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+
+    class Particle {
+        constructor() {
+            this.reset();
+        }
+        reset() {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
+            this.size = Math.random() * 3 + 1;
+            this.speedX = Math.random() * 1 - 0.5;
+            this.speedY = Math.random() * 1 - 0.5;
+        }
+        update() {
+            this.x += this.speedX;
+            this.y += this.speedY;
+            if (this.x > canvas.width || this.x < 0 || this.y > canvas.height || this.y < 0) this.reset();
+        }
+        draw() {
+            // Detect mode to pick color
+            const isLight = document.body.classList.contains('light-mode');
+            ctx.fillStyle = isLight ? 'rgba(0, 0, 139, 0.3)' : 'rgba(0, 255, 255, 0.4)';
+            ctx.fillRect(this.x, this.y, this.size, this.size);
+        }
+    }
+
+    function createParticles() {
+        particles = [];
+        for (let i = 0; i < 100; i++) particles.push(new Particle());
+    }
+
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach(p => {
+            p.update();
+            p.draw();
+        });
+        requestAnimationFrame(animate);
+    }
 </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98ade81430f3aae8',t:'MTc1OTg0NTQzNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</body>
 </html>

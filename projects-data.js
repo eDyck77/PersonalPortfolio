@@ -36,7 +36,7 @@ const allProjects = [
         `,
         image: "Images/Inkling Nook/inklingNookLogo.png",
         images: [
-            "Images/Inkling Nook/Login.gif", "Images/Inkling Nook/Inventory.gif", "Images/Inkling Nook/CustomerEdit.gif","Images/Inkling Nook/checkout.gif", "Images/Inkling Nook/reminderEmail.gif", "Images/Inkling Nook/Goodstanding.gif", "Images/Inkling Nook/statistics.png"
+            "Images/Inkling Nook/Login.gif", "Images/Inkling Nook/Inventory.gif", "Images/Inkling Nook/CustomerEdit.gif", "Images/Inkling Nook/reminderEmail.gif", "Images/Inkling Nook/Goodstanding.gif", "Images/Inkling Nook/statistics.png"
 
         ],
         github: "https://github.com/eDyck77/FinalProject",
