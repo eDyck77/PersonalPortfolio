@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects - Eric Dyck</title>
+  <link rel="stylesheet" href="Stylesheet.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body class="projects-page">
+<nav class="nav">
+  <div class="nav-content">
+    <div class="logo">ED</div>
+
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#skills">Skills</a></li>
+        <li><a href="projects.html">Projects</a></li>
+      </ul>
+
+      <div class="contact-icons">
+        <a href="https://github.com/eDyck77" target="_blank" class="icon github">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="https://linkedin.com/in/edyck" target="_blank" class="icon linkedin">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </div>
+
+      <button class="theme-toggle" onclick="toggleTheme()">
+        <span id="theme-icon">🌙</span>
+      </button>
+      <button class="mobile-menu-btn">
+        ☰
+      </button>
+    </div>
+  </div>
+</nav>
+<section class="section visible">
+  <div class="container">
+    <h2 class="section-title">Full Project Library</h2>
+
+    <div class="projects-grid" id="all-projects-grid">
+    </div>
+
+    <div style="text-align: center; margin-top: 3rem;">
+      <a href="index.html" class="cta-button small">← Back to Homepage</a>
+    </div>
+  </div>
+</section>
+
+<script src="projects-data.js"></script>
+<script>
+  function initTheme() {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      document.body.classList.toggle('light-mode', savedTheme === 'light');
+    } else {
+      const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+      document.body.classList.toggle('light-mode', prefersLight);
+    }
+    updateIcon();
+  }
+
+  function toggleTheme() {
+    document.body.classList.toggle('light-mode');
+    localStorage.setItem('theme', document.body.classList.contains('light-mode') ? 'light' : 'dark');
+    updateIcon();
+  }
+
+  function updateIcon() {
+    const icon = document.getElementById('theme-icon');
+    if(icon) {
+      icon.textContent = document.body.classList.contains('light-mode') ? '☀️' : '🌙';
+    }
+  }
+
+  // Call this on every page load
+  initTheme();
+  // Render every project in the data file
+  const grid = document.getElementById('all-projects-grid');
+  grid.innerHTML = allProjects.map(p => `
+            <div class="project-card">
+                <div class="project-image"><img src="${p.image}" alt="${p.title}"></div>
+                <div class="project-content">
+                    <h3>${p.title}</h3>
+                    <p>${p.shortDesc}</p>
+                    <div class="project-tags">
+                        ${p.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                    </div>
+                    <a href="project-detail.html?id=${p.id}" class="cta-button small">Read Case Study</a>
+                </div>
+            </div>
+        `).join('');
+</script>
+</body>
+</html>

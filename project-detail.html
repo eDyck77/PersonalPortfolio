@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Details - Eric Dyck</title>
+    <link rel="stylesheet" href="Stylesheet.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+<nav class="nav">
+    <div class="nav-content">
+        <div class="logo">ED</div>
+
+        <div class="nav-right">
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#skills">Skills</a></li>
+                <li><a href="projects.html">Projects</a></li>
+            </ul>
+
+            <div class="contact-icons">
+                <a href="https://github.com/eDyck77" target="_blank" class="icon github">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://linkedin.com/in/edyck" target="_blank" class="icon linkedin">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
+
+            <button class="theme-toggle" onclick="toggleTheme()">
+                <span id="theme-icon">🌙</span>
+            </button>
+            <button class="mobile-menu-btn">
+                ☰
+            </button>
+        </div>
+    </div>
+</nav>
+
+<section class="section visible">
+    <div class="container" id="detail-content">
+    </div>
+</section>
+
+<script src="projects-data.js"></script>
+<script>
+    function initTheme() {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            document.body.classList.toggle('light-mode', savedTheme === 'light');
+        } else {
+            const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+            document.body.classList.toggle('light-mode', prefersLight);
+        }
+        updateIcon();
+    }
+
+    function toggleTheme() {
+        document.body.classList.toggle('light-mode');
+        localStorage.setItem('theme', document.body.classList.contains('light-mode') ? 'light' : 'dark');
+        updateIcon();
+    }
+
+    function updateIcon() {
+        const icon = document.getElementById('theme-icon');
+        if(icon) {
+            icon.textContent = document.body.classList.contains('light-mode') ? '☀️' : '🌙';
+        }
+    }
+
+    // Call this on every page load
+    initTheme();
+    const params = new URLSearchParams(window.location.search);
+    const project = allProjects.find(p => p.id === params.get('id'));
+
+    // Helper to map tags to the same colorful icons used on homepage
+    const iconMap = {
+        "Xcode": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/xcode/xcode-original.svg",
+        "Android Studio": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/androidstudio/androidstudio-original.svg",
+        "IntelliJ": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/intellij/intellij-original.svg",
+        "PhpStorm": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/phpstorm/phpstorm-original.svg",
+        "C#": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg",
+        "PHP": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
+        "JavaScript": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+        "Swift": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg",
+        "TypeScript": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+        "Angular": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg",
+        "Kotlin": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg",
+        "JavaFX": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+        "SCSS": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg",
+        "Git": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
+        "MySQL": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+        "CSS": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg", // Added CSS
+        "File-IO": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original-wordmark.svg", // Use Java Wordmark for IO
+        "Animation": "https://www.svgrepo.com/show/443621/brand-framer-motion.svg"
+    };
+
+    if (project) {
+        document.getElementById('detail-content').innerHTML = `
+        <div class="detail-header">
+            <h1 class="section-title">${project.title}</h1>
+
+            ${project.github ? `
+                <a href="${project.github}" target="_blank" class="github-link-detail">
+                    <i class="fab fa-github"></i> View Source Code
+                </a>
+            ` : ''}
+        </div>
+
+        <div class="detail-layout">
+            <div class="carousel-container">
+                <div class="carousel-slide">
+                    ${project.images.map(img => `
+                        <div class="slide-wrapper">
+                            <img src="${img}" class="detail-img" alt="Project Screenshot">
+                        </div>
+                    `).join('')}
+                </div>
+                ${project.images.length > 1 ? `
+                    <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+                    <button class="next" onclick="moveSlide(1)">&#10095;</button>
+                ` : ''}
+            </div>
+
+            <div class="detail-info">
+                <p>${project.fullDesc}</p>
+
+                <h3>Technologies Used</h3>
+                <div class="skills-flex-container detail-icons">
+                    ${project.tags.map(tag => `
+                        <div class="icon-box">
+                            <img src="${iconMap[tag] || ''}" alt="${tag}">
+                            <span>${tag}</span>
+                        </div>
+                    `).filter(html => !html.includes('src=""')).join('')}
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem;">
+            <a href="projects.html" class="cta-button small">← Back to Projects</a>
+        </div>
+    `;
+    }
+
+    // Carousel Logic
+    let slideIndex = 0;
+    function moveSlide(n) {
+        const slides = document.querySelectorAll(".detail-img");
+        slideIndex = (slideIndex + n + slides.length) % slides.length;
+        document.querySelector(".carousel-slide").style.transform = `translateX(-${slideIndex * 100}%)`;
+    }
+</script>
+</body>
+</html>
