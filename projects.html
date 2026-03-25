@@ -95,6 +95,13 @@
                 </div>
             </div>
         `).join('');
+
+  const menuBtn = document.querySelector('.mobile-menu-btn');
+  const navLinks = document.querySelector('.nav-links');
+
+  menuBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+  });
 </script>
 </body>
 </html>

@@ -957,7 +957,7 @@ body.light-mode .icon:hover {
 /* Specific Spacing for Projects and Detail Pages */
 .projects-page .section,
 .detail-page .section {
-    padding-top: 100px; /* Reduced from 120px to pull content up */
+    padding-top: 120px; /* Reduced from 120px to pull content up */
 }
 
 /* Tighten space specifically for the main titles on these pages */
@@ -974,10 +974,7 @@ body.light-mode .icon:hover {
 
 /* Tablet/Mobile adjustment to keep it tight across devices */
 @media (max-width: 768px) {
-    .projects-page .section,
-    .detail-page .section {
-        padding-top: 70px;
-    }
+
     .center-btn-container {
         width: 100%;
         text-align: center;
@@ -1135,4 +1132,143 @@ body.light-mode .detail-info h3 {
 .detail-info li {
     margin-bottom: 0.5rem;
     line-height: 1.5;
+}
+
+/* Ensure images stay within their slide on mobile */
+@media (max-width: 768px) {
+    .slide-wrapper {
+        height: auto; /* Allow height to adjust based on image ratio */
+        min-height: 250px;
+        max-height: 400px;
+        padding: 5px;
+        overflow: hidden; /* Prevent bleed into next slide */
+    }
+
+    .detail-img {
+        max-width: 100%; /* Strict constraint */
+        width: auto;
+        height: auto;
+        max-height: 350px;
+        object-fit: contain;
+    }
+}
+@media (max-width: 768px) {
+    .detail-icons {
+        flex-wrap: nowrap; /* Force one line */
+        overflow-x: auto; /* Allow scrolling if they still don't fit */
+        gap: 0.5rem;
+        justify-content: space-around !important;
+        padding-bottom: 10px;
+    }
+
+    .detail-icons .icon-box {
+        width: auto; /* Let them size naturally */
+        min-width: 60px;
+    }
+
+    .detail-icons .icon-box img {
+        width: 35px; /* Smaller icons for mobile */
+        height: 35px;
+    }
+
+    .detail-icons .icon-box span {
+        font-size: 0.7rem;
+    }
+}
+/* Dark Mode Link Hover Fixes */
+.contact-icon:hover span,
+.github-link-detail:hover {
+    color: #00ffff !important; /* Cyan glow in dark mode */
+}
+
+/* Ensure hamburger works - often a z-index or background issue on detail pages */
+.projects-page .nav,
+.detail-page .nav {
+    z-index: 9999; /* Ensure it stays above carousel buttons */
+}
+
+/* Fix Technical Proficiencies Title cutting off */
+@media (max-width: 480px) {
+    .section-title {
+        font-size: 2rem; /* Shrink font size on small screens */
+        padding: 0 10px;
+        word-wrap: break-word;
+    }
+
+    .skills-subtitle {
+        font-size: 1.1rem;
+    }
+}
+
+/* --- Global Carousel Image Fix --- */
+.slide-wrapper {
+    min-width: 100%;
+    width: 100%; /* Force width to match container */
+    flex-shrink: 0;
+    height: 600px; /* Base height for desktop */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px; /* Space between image and blue edges */
+    box-sizing: border-box;
+    overflow: hidden; /* Hard stop for any overflow */
+}
+
+.detail-img {
+    max-width: 100%; /* Never wider than the wrapper */
+    max-height: 100%; /* Never taller than the wrapper */
+    width: auto;      /* Maintain aspect ratio */
+    height: auto;     /* Maintain aspect ratio */
+    object-fit: contain; /* Professional fit within the box */
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .slide-wrapper {
+        height: 450px;
+        padding: 20px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .slide-wrapper {
+        height: 300px;
+        padding: 10px;
+    }
+
+    /* Force the technical proficiencies title to fit */
+    .section-title {
+        font-size: 1.8rem !important;
+        line-height: 1.2;
+        padding: 0 15px;
+    }
+}
+
+/* Hamburger fix: Ensure it stays clickable over the carousel */
+.nav {
+    z-index: 9999 !important;
+}
+
+/* Dark Mode Hover for GitHub/LinkedIn */
+.github-link-detail:hover,
+.contact-icon:hover span {
+    color: #00ffff !important;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+/* One-line icons for technologies on mobile */
+@media (max-width: 768px) {
+    .detail-icons {
+        flex-wrap: nowrap !important;
+        justify-content: flex-start !important;
+        overflow-x: auto; /* Adds a swipe if you have many icons */
+        gap: 1rem;
+    }
+    .detail-icons .icon-box {
+        flex: 0 0 auto; /* Prevents icons from squishing */
+        width: 70px;
+    }
 }

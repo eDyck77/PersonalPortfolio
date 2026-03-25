@@ -154,6 +154,12 @@
         slideIndex = (slideIndex + n + slides.length) % slides.length;
         document.querySelector(".carousel-slide").style.transform = `translateX(-${slideIndex * 100}%)`;
     }
+    const menuBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+
+    menuBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('show');
+    });
 </script>
 </body>
 </html>
