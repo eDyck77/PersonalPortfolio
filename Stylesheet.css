@@ -681,14 +681,7 @@ body.light-mode .tag {
     gap: 1rem;
 }
 
-.contact-icon {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-decoration: none;
-}
-
-.contact-icon span {
+.contact-icons span {
     margin-top: 12px;
     font-size: 20px;
     color: var(--text-color);
@@ -705,6 +698,7 @@ body.light-mode .tag {
 /* Hover Boost */
 .icon:hover {
     transform: none !important;
+    color: cyan;
 }
 
 /* Mobile Styling */
@@ -716,12 +710,12 @@ body.light-mode .tag {
         align-items: center;
     }
 
-    .contact-icon img {
+    .contact-icons img {
         width: 90px;
         height: 90px;
     }
 
-    .contact-icon span {
+    .contact-icons span {
         font-size: 18px;
     }
 }

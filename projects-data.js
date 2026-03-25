@@ -147,7 +147,7 @@ const allProjects = [
             "Images/BioWebsite/ContactForm.png"
         ],
         github: "https://github.com/eDyck77/BiographyWebsite",
-        featured: false,
+        featured: true,
         tags: ["Html", "CSS"]
     }
 ];
